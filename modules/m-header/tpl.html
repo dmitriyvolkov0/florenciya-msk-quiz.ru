@@ -1,0 +1,39 @@
+{% load custom_tags %}
+
+<header class="header">
+    <div class="container header__container">
+        <div class="header__row">
+            {% img_tag src="m-header/m-header-logo.svg" width="200" height="65" classes="header__logo" alt="Флоренция" %}
+            <div class="header__address">
+                <a href="#" class="header__address-link link">
+                    <span>
+                        {% if data.is_moderate %}
+                            <span class="header__address-link_city">{{ data.address_moderate.city|safe}}</span>
+                            <br>
+                            <span>{{ data.address_moderate.street|safe}}</span>
+                            
+                        {% else %}
+                            <span class="header__address-link_city">{{ data.address.city|safe }}</span>
+                            <br>
+                            <span>{{ data.address.street|safe }}</span>
+                        {% endif %}
+                    </span>
+                </a>
+            </div>
+            <div class="header__data">
+                <a href="#" class="header__phone nobr">
+                    {% if data.is_moderate %}
+                        {{ data.phone_moderate|safe}}
+                    {% else %}
+                        {{ data.phone|safe}}
+                    {% endif %}
+                </a>
+                {% if data.work_time %}
+                    <span class="header__worktime">
+                        {{ data.work_time }}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>

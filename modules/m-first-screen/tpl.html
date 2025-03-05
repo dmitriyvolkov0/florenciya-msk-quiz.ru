@@ -1,0 +1,66 @@
+{% load custom_tags %}
+
+<div class="fs">
+    <div class="container">
+        <div class="fs__grid">
+            <div class="fs__data">
+                <h1 class="fs__title">Восстановите зубы по&nbsp;выгодной цене</h1>
+                <div class="fs__location">в Нижнем Новгороде</div>
+                <p class="fs__subtitle">
+                    <span>по стандартам Швейцарии, без&nbsp;выезда в&nbsp;Европу</span>
+                </p>
+            </div>
+            <div class="fs__employee">
+                <div class="fs__employee-img-wrapper">
+                    {% img_tag src="m-first-screen/m-first-screen-doctor.webp" width="572" height="491" classes="" alt="Врач" %}
+                </div>
+                <div class="fs__employee-inform">
+                    <div class="fs__employee-experience">XX лет стажа</div>
+                    <div class="fs__employee-profession">Имплантолог, <span class="nobr">челюстно-лицевой</span> хирург</div>
+                    <div class="fs__employee-fio">Имя Фамилия</div>
+                </div>
+            </div>
+            <div class="fs__prices">
+                <div class="fs__prices-item">
+                    <div class="fs__prices-item-img-wrapper">
+                        {% img_tag src="m-first-screen/m-first-screen-price-1.webp" width="209" height="142" classes="fs__prices-item-img" alt="Имплантация «Всё на 4-х»" %}
+                    </div>
+                    <p class="fs__prices-text">Имплантация <span class="nobr">«Всё на 4-х»</span></p>
+                    <div class="fs__prices-price">
+                        <span class="fs__price-old nobr through">159 990 ₽</span>
+                        <span class="fs__price-new nobr">119 990 ₽</span>
+                    </div>
+                </div>
+                <div class="fs__prices-item">
+                    <div class="fs__prices-item-img-wrapper">
+                        {% img_tag src="m-first-screen/m-first-screen-price-2.webp" width="209" height="142" classes="fs__prices-item-img" alt="Имплантация 1 зуба" %}
+                    </div>
+                    <p class="fs__prices-text">Имплантация 1&nbsp;зуба</span></p>
+                    <div class="fs__prices-price">
+                        <span class="fs__price-old nobr through">31 990 ₽</span>
+                        <span class="fs__price-new nobr">21 990 ₽</span>
+                    </div>
+                </div>
+            </div>         
+            <div class="fs__present">
+                <div class="fs__present-title">Рассчитайте стоимость лечения и <b>получите подарки от&nbsp;клиники</b></div>
+                <ul class="fs__present-list">
+                    <li>
+                        <span>КТ-снимки <span class="through">2000</span> 0&nbsp;₽ <br>при&nbsp;лечении</span>
+                    </li>
+                    <li>Бесплатная консультация <br>имплантолога</li>
+                    <li>Бесплатное удаление зубов при&nbsp;тотальной имплантации</li>
+                    <li>
+                        <div class="fs__present-but-wrapper">
+                            <button class="fs__present-but button">
+                                Рассчитать стоимость<br>
+                                <span class="fs__present-but_text">и получить подарки</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                {% img_tag src="m-first-screen/m-first-screen-gift.webp" width="214" height="198" classes="fs__present-img" alt="Подарок" %}
+            </div>
+         </div>
+     </div>
+</div>

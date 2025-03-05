@@ -1,0 +1,36 @@
+@mixin laptop {
+  
+  @media (max-width: $laptop) {
+    @content;
+  }
+}
+  
+@mixin tablet {
+
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+  
+@mixin mobile {
+
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin flex_center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex_horizontal() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex_vertical() {
+  display: flex;
+  align-items: center;
+}

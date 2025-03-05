@@ -1,0 +1,24 @@
+//Сброс стилей
+@import "_normalize.scss";
+// Переменные
+@import "_vars.scss";
+// Шрифты
+@import "_fonts.scss";
+// Общее
+@import "_common.scss";
+// Элементы
+@import "_elements.scss";
+// Миксины
+@import "_mixins.scss";
+
+// ========= Модули =========
+// header
+@import "@modules/m-header/style.scss";
+// first screen
+@import "@modules/m-first-screen/style.scss";
+// advantages
+@import "@modules/m-advantages/style.scss";
+// cookie
+@import "@modules/m-cookie/style.scss";
+// footer
+@import "@modules/m-footer/style.scss";

@@ -1,0 +1,121 @@
+.header {
+    padding-top: 48px;
+    font-family: 'Montserrat';
+}
+
+.header__row {
+    display: flex;
+    column-gap: 204px;
+    align-items: center;
+    column-gap: 144px;
+}
+
+.header__address {
+    line-height: 22px;
+}
+
+.header__data {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 3px;
+}
+
+.header__address-link_city {
+    font-weight: 600;
+}
+
+.header__phone {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: $text_cl_1;
+    text-decoration: none;
+}
+
+.header__worktime {
+    display: block;
+    margin-top: 12px;
+}
+
+@include laptop {
+    
+    .header {
+        padding-top: 25px;
+    }
+
+    .header__row {
+        column-gap: 48px;
+    }
+
+    .header__logo {
+        width: 180px;
+    }
+
+    .header__phone {
+        font-size: 26px;
+    }
+}
+
+@include tablet {
+    
+    .header {
+        padding-top: 26px;
+    }
+
+    .header__row {
+        column-gap: 44px;
+    }
+
+    .header__logo {
+        width: 150px;
+    }
+
+    .header__phone {
+        font-size: 22px;
+    }
+
+    .header__worktime {
+        font-size: 14px;
+    }
+} 
+
+@include mobile {
+
+    .header {
+        padding-top: 20px;
+    }
+
+    .header__container {
+        padding: 0 21px;
+    }
+
+    .header__row {
+        display: grid;
+        grid-template-areas:
+        "header__logo header__data"
+        "header__address header__address";
+        column-gap: 0;
+        row-gap: 10px;
+    }
+
+    .header__logo {
+        grid-area: header__logo;
+    }
+
+    .header__data {
+        grid-area: header__data;
+    }
+
+    .header__address {
+        grid-area: header__address;
+    }
+
+    .header__phone {
+        font-size: 18px;
+    }
+
+    .header__worktime {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+}

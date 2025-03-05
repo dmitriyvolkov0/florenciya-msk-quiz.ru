@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+
+{% block page_title %}
+    {% if data.title %}
+        {{ data.title }}
+    {% else %}
+        Флоренция - центр цифровой имплантации
+    {% endif %}
+{% endblock %}
+
+
+{% block page_content %}
+    {% include "m-header/tpl.html" with data=data %}
+    {% include "m-first-screen/tpl.html" with data=data %}
+    {% include "m-advantages/tpl.html" with data=data %}
+    {% include "m-footer/tpl.html" %}
+{% endblock %}
