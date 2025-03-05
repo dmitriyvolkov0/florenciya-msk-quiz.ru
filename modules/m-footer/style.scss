@@ -1,0 +1,140 @@
+.footer {
+    background: $bg_cl_3;
+    margin: 60px 0 30px 0;
+    padding: 19px 0 0 0;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-areas: 
+    "footer__logo footer__specialist footer__sinergium"
+    "footer__logo footer__links ."
+    "footer__copyright footer__links .";
+    grid-template-columns: 1fr 393px 1fr;
+    row-gap: 10px;
+}
+
+.footer__logo {
+    grid-area: footer__logo;
+    min-width: 290px;
+}
+
+.footer__oferta {
+    font-size: 16px;
+    line-height: 19.2px;
+    padding-top: 11px;
+    opacity: .5;
+}
+
+.footer__specialist {
+    grid-area: footer__specialist;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.footer__links {
+    grid-area: footer__links;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.footer__link {
+    width: fit-content;
+    font-weight: 600;
+
+    &:nth-child(2) {
+        opacity: .5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.footer__sinergium {
+    grid-area: footer__sinergium;
+    display: flex;
+    column-gap: 16px;
+    margin-left: auto;
+    max-width: 347px;
+}
+
+.footer__sinergium-logo {
+    align-self: flex-start;
+    margin-top: 6px;
+}
+
+.footer__sinergium-text {
+    font-size: 15.45px;
+    line-height: 24px;
+
+    .accent {
+        color: $text_cl_4;
+    }
+}
+
+.footer__copyright {
+    grid-area: footer__copyright;
+    margin-top: 43px;
+}
+
+@include laptop {
+
+    .footer {
+        margin: 0;
+        padding: 40px 0 80px 0;
+    }
+
+    .footer__grid {
+        grid-template-areas: 
+        "footer__logo footer__links footer__specialist"
+        "footer__logo footer__links footer__sinergium"
+        "footer__copyright footer__copyright footer__copyright";
+        row-gap: 16px;
+        grid-template-columns: 1fr 1fr 310px;
+    }
+    
+    .footer__logo {
+        grid-area: footer__logo;
+        min-width: 290px;
+    }
+
+    .footer__logo-img {
+        width: 154px;
+    }
+
+    .footer__oferta {
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 12px;
+    }
+
+    .footer__links {
+        padding-top: 20px;
+        row-gap: 20px;
+    }
+
+    .footer__link {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .footer__specialist {
+        font-size: 12px;
+    }
+
+    .footer__sinergium-text {
+        font-size: 14px;
+    }
+
+    .footer__copyright {
+        margin: 0;
+        font-size: 13px;
+    }
+}
+
+@include tablet {
+
+}

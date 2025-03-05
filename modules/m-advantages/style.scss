@@ -89,7 +89,7 @@
     }
 
     .advantages__item {
-        flex-basis: 49%;
+        flex-basis: calc(50% - 7px);
         padding: 18px 32px 17px 20px;
 
         &:last-child {

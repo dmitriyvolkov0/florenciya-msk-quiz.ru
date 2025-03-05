@@ -12,10 +12,11 @@
     color: inherit;
     border-bottom: 1px dashed $border_cl;
     text-decoration: none;
+    transition: all .3s;
 
     &:hover {
         color: $text_cl_2;
-        border-bottom: none;
+        border-color: transparent;
     }
 }
 
