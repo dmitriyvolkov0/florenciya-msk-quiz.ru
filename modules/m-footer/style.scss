@@ -31,6 +31,7 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .footer__links {
@@ -137,4 +138,76 @@
 
 @include tablet {
 
+    .footer {
+        padding: 50px 0 30px 0;
+    }
+
+    .footer__logo-img {
+        width: 133px;
+    }
+
+    .footer__grid {
+        grid-template-areas: 
+        "footer__logo footer__links"
+        "footer__specialist footer__sinergium"
+        "footer__copyright footer__copyright";
+        row-gap: 19px;
+        grid-template-columns: 320px 300px;
+        justify-content: space-between;
+    }
+}
+
+@include mobile {
+
+    .footer {
+        padding: 40px 0 36px 0;
+    }
+
+    .footer__grid {
+        display: flex;
+        flex-direction: column;
+        max-width: 330px;
+        margin: 0 auto; 
+    }
+    
+    .footer__logo {
+        order: 1;
+    }
+    
+    .footer__logo-img {
+        width: 142px;
+    }
+
+    .footer__oferta {
+        opacity: 1;
+    }
+
+    .footer__links {
+        order: 2;
+        padding: 0;
+        row-gap: 16px;
+    }
+
+    .footer__link {
+
+        &:nth-child(2) {
+            opacity: 1;
+        }
+    }
+
+    .footer__specialist {
+        order: 3;
+        font-size: 14px;
+        text-transform: none;
+        font-weight: normal;
+    }
+
+    .footer__sinergium {
+        order: 4;
+    }
+
+    .footer__copyright {
+        order: 5;
+        font-size: 14px;
+    }
 }
