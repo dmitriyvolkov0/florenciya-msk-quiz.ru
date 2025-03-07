@@ -23,7 +23,7 @@ class SiteSettings(models.Model):
 
     class Meta:
         verbose_name = "Настройки сайта"
-        verbose_name_plural = "Настройки сайта"
+        verbose_name_plural = "1.Настройки сайта"
 
 
 class Gift(models.Model):
@@ -65,4 +65,38 @@ class FirstScreenSettings(models.Model):
 
     class Meta:
         verbose_name = "Первый экран"
-        verbose_name_plural = "Первый экран"
+        verbose_name_plural = "2.Первый экран"
+
+
+class Advantage(models.Model):
+    order = models.PositiveIntegerField(default=0, verbose_name='Порядок')
+    title = models.CharField(max_length=255, verbose_name="Заголовок", default="")
+    subtitle = models.CharField(max_length=255, verbose_name="Подзаголовок", default="")
+
+    image = models.ImageField(upload_to="static/modules/m-advantages", verbose_name="Изображение")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = "Преимущества"
+        verbose_name_plural = "Преимущества"
+
+
+class AdvantagesScreenSettings(models.Model):
+    title = models.CharField(max_length=512, verbose_name="Заголовок", default="")
+    info_list = models.TextField(verbose_name="Список", default="")
+    advantages = models.ManyToManyField(Advantage, verbose_name="Преимущества (выберите 1 и более)", related_name='advantages')
+
+    def save(self, *args, **kwargs):
+        if not self.pk and AdvantagesScreenSettings.objects.exists():
+            raise ValidationError("Может существовать только одна запись настроек")
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return 'Настройки экрана "преимущества"'
+
+    class Meta:
+        verbose_name = 'Экран "преимущества"'
+        verbose_name_plural = '3.Экран "преимущества"'

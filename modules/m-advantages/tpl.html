@@ -7,38 +7,21 @@
                 {% img_tag src="m-advantages/m-advantages-doctor.webp" width="342" height="342" classes="" alt="Врач" %}
             </div>
             <h2 class="h2 advantages__title">
-                Получите имплантацию с&nbsp;приживаемостью 99,8% у&nbsp;эксперта <span class="accent"><span class="nobr">с 20-летней</span> практикой</span>
+                {{ data.advantages_screen.title|safe }}
             </h2>
             <ul class="advantages__info-list">
-                <li>
-                    <span>Входит в <span class="bold">ТОП-10 имплантологов Москвы</span> по&nbsp;отзывам пациентов</span>
-                </li>
-                <li>
-                    <span>Ежедневно проводит <span class="bold">до&nbsp;5&nbsp;имплантаций</span></span>
-                </li>
+                {{ data.advantages_screen.info_list|safe }}
             </ul>
             <ul class="advantages__items-list">
-                <li class="advantages__item">
-                    {% img_tag src="m-advantages/m-advantages-1.webp" width="72" height="72" classes="advantages__item-img" alt="Преимущество" %}
-                    <div class="advantages__item-text">
-                        <div class="bold">Гарантия на&nbsp;импланты 100&nbsp;лет</div>
-                        15&nbsp;проверенных ведущих марок
-                    </div>
-                </li>
-                <li class="advantages__item">
-                    {% img_tag src="m-advantages/m-advantages-2.webp" width="72" height="72" classes="advantages__item-img" alt="Преимущество" %}
-                    <div class="advantages__item-text">
-                        <div class="bold">Гарантия на&nbsp;работу врача</div>
-                        по&nbsp;стандарту Минздрава России
-                    </div>
-                </li>
-                <li class="advantages__item">
-                    {% img_tag src="m-advantages/m-advantages-3.webp" width="72" height="72" classes="advantages__item-img" alt="Преимущество" %}
-                    <div class="advantages__item-text">
-                        <div class="bold">Ускоренное приживление</div>
-                        с&nbsp;установкой по&nbsp;рассчитанному до&nbsp;0,1&nbsp;мм хирургическому шаблону
-                    </div>
-                </li>
+                {% for advantage in data.advantages_screen.advantages.all %}
+                    <li class="advantages__item">
+                        {% img_tag src=advantage.image is_absolute_src=True width="72" height="72" classes="advantages__item-img" alt="Преимущество" %}
+                        <div class="advantages__item-text">
+                            <div class="bold">{{ advantage.title|safe }}</div>
+                            {{ advantage.subtitle|safe }}
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

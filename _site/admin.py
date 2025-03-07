@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteSettings, FirstScreenSettings, Gift
+from .models import SiteSettings, FirstScreenSettings, AdvantagesScreenSettings, Gift, Advantage
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -53,4 +53,21 @@ class FirstScreenSettingsAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
     
+
+@admin.register(AdvantagesScreenSettings)
+class AdvantagesScreenSettingsAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('title', 'info_list', 'advantages')
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return not AdvantagesScreenSettings.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
+    
 admin.site.register(Gift)
+admin.site.register(Advantage)
