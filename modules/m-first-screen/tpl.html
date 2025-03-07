@@ -4,10 +4,10 @@
     <div class="container">
         <div class="fs__grid">
             <div class="fs__data">
-                <h1 class="fs__title">Восстановите зубы по&nbsp;выгодной цене</h1>
-                <div class="fs__location">в Нижнем Новгороде</div>
+                <h1 class="fs__title">{{ data.first_screen.title|safe }}</h1>
+                <div class="fs__location">{{ data.first_screen.location|safe }}</div>
                 <p class="fs__subtitle">
-                    <span>по стандартам Швейцарии, без&nbsp;выезда в&nbsp;Европу</span>
+                    <span>{{ data.first_screen.subtitle|safe }}</span>
                 </p>
             </div>
             <div class="fs__employee">
@@ -15,9 +15,9 @@
                     {% img_tag src="m-first-screen/m-first-screen-doctor.webp" width="572" height="491" classes="" alt="Врач" %}
                 </div>
                 <div class="fs__employee-inform">
-                    <div class="fs__employee-experience">XX лет стажа</div>
-                    <div class="fs__employee-profession">Имплантолог, <span class="nobr">челюстно-лицевой</span> хирург</div>
-                    <div class="fs__employee-fio">Имя Фамилия</div>
+                    <div class="fs__employee-experience">{{ data.first_screen.employee_experience|safe }} стажа</div>
+                    <div class="fs__employee-profession">{{ data.first_screen.employee_profession|safe }}</div>
+                    <div class="fs__employee-fio">{{ data.first_screen.employee_fio|safe }}</div>
                 </div>
             </div>
             <div class="fs__prices">
@@ -25,31 +25,39 @@
                     <div class="fs__prices-item-img-wrapper">
                         {% img_tag src="m-first-screen/m-first-screen-price-1.webp" width="209" height="142" classes="fs__prices-item-img" alt="Имплантация «Всё на 4-х»" %}
                     </div>
-                    <p class="fs__prices-text">Имплантация <span class="nobr">«Всё на 4-х»</span></p>
+                    <p class="fs__prices-text">
+                        {{ data.first_screen.service_1_title|safe }}
+                    </p>
                     <div class="fs__prices-price">
-                        <span class="fs__price-old nobr through">159 990 ₽</span>
-                        <span class="fs__price-new nobr">119 990 ₽</span>
+                        <span class="fs__price-old nobr through">
+                            {{ data.first_screen.service_1_old_price|safe }}
+                        </span>
+                        <span class="fs__price-new nobr">
+                            {{ data.first_screen.service_1_new_price|safe }}
+                        </span>
                     </div>
                 </div>
                 <div class="fs__prices-item">
                     <div class="fs__prices-item-img-wrapper">
                         {% img_tag src="m-first-screen/m-first-screen-price-2.webp" width="209" height="142" classes="fs__prices-item-img" alt="Имплантация 1 зуба" %}
                     </div>
-                    <p class="fs__prices-text">Имплантация 1&nbsp;зуба</span></p>
+                    <p class="fs__prices-text">{{ data.first_screen.service_2_title|safe }}</p>
                     <div class="fs__prices-price">
-                        <span class="fs__price-old nobr through">31 990 ₽</span>
-                        <span class="fs__price-new nobr">21 990 ₽</span>
+                        <span class="fs__price-old nobr through">
+                            {{ data.first_screen.service_2_old_price|safe }}
+                        </span>
+                        <span class="fs__price-new nobr">
+                            {{ data.first_screen.service_2_new_price|safe }}
+                        </span>
                     </div>
                 </div>
             </div>         
             <div class="fs__present">
-                <div class="fs__present-title">Рассчитайте стоимость лечения и <b>получите подарки от&nbsp;клиники</b></div>
+                <div class="fs__present-title">{{ data.first_screen.gifts_title|safe }}</div>        
                 <ul class="fs__present-list">
-                    <li>
-                        <span>КТ-снимки <span class="through">2000</span> 0&nbsp;₽ <br>при&nbsp;лечении</span>
-                    </li>
-                    <li>Бесплатная консультация <br>имплантолога</li>
-                    <li>Бесплатное удаление зубов при&nbsp;тотальной имплантации</li>
+                    {% for gift in data.first_screen.gifts.all %}
+                        <li>{{ gift.title|safe }}</li>
+                    {% endfor %}
                     <li>
                         <div class="fs__present-but-wrapper">
                             <button class="fs__present-but button">

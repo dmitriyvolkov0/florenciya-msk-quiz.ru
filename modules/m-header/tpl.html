@@ -7,30 +7,23 @@
             <div class="header__address">
                 <a href="#" class="header__address-link link">
                     <span>
-                        {% if data.is_moderate %}
-                            <span class="header__address-link_city">{{ data.address_moderate.city|safe}}</span>
-                            <br>
-                            <span>{{ data.address_moderate.street|safe}}</span>
-                            
-                        {% else %}
-                            <span class="header__address-link_city">{{ data.address.city|safe }}</span>
-                            <br>
-                            <span>{{ data.address.street|safe }}</span>
-                        {% endif %}
+                        <span class="header__address-link_city">{{ data.common.city|safe }}</span>
+                        <br>
+                        <span>{{ data.common.street|safe }}</span>
                     </span>
                 </a>
             </div>
             <div class="header__data">
                 <a href="#" class="header__phone nobr">
-                    {% if data.is_moderate %}
-                        {{ data.phone_moderate|safe}}
+                    {% if data.common.is_moderate %}
+                        {{ data.common.phone_moderate|safe}}
                     {% else %}
-                        {{ data.phone|safe}}
+                        {{ data.common.phone|safe}}
                     {% endif %}
                 </a>
-                {% if data.work_time %}
+                {% if data.common.work_time %}
                     <span class="header__worktime">
-                        {{ data.work_time }}
+                        {{ data.common.work_time }}
                     </span>
                 {% endif %}
             </div>
