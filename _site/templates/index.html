@@ -2,10 +2,19 @@
 
 
 {% block page_title %}
-    {% if data.title %}
-        {{ data.title }}
+    {% if data.common.title %}
+        {{ data.common.title }}
     {% else %}
-        Флоренция - центр цифровой имплантации
+        Пример заголовка страницы
+    {% endif %}
+{% endblock %}
+
+
+{% block page_description %}
+    {% if data.common.description %}
+        {{ data.common.description }}
+    {% else %}
+        Пример описания страницы
     {% endif %}
 {% endblock %}
 
