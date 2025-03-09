@@ -4,7 +4,7 @@
     <div class="container">
         <div class="advantages__grid">
             <div class="advantages__img">
-                {% img_tag src="m-advantages/m-advantages-doctor.webp" width="342" height="342" classes="" alt="Врач" %}
+                {% img_tag src="m-advantages/m-advantages-doctor.webp" width="342" height="342" classes="" alt="Врач" is_lazy=True %}
             </div>
             <h2 class="h2 advantages__title">
                 {{ data.advantages_screen.title|safe }}
@@ -15,7 +15,7 @@
             <ul class="advantages__items-list">
                 {% for advantage in data.advantages_screen.advantages.all %}
                     <li class="advantages__item">
-                        {% img_tag src=advantage.image is_absolute_src=True width="72" height="72" classes="advantages__item-img" alt="Преимущество" %}
+                        {% img_tag src=advantage.image is_absolute_src=True width="72" height="72" classes="advantages__item-img" alt="Преимущество" is_lazy=True %}
                         <div class="advantages__item-text">
                             <div class="bold">{{ advantage.title|safe }}</div>
                             {{ advantage.subtitle|safe }}
