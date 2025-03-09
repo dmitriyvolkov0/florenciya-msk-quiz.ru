@@ -15,7 +15,7 @@
             <ul class="advantages__items-list">
                 {% for advantage in data.advantages_screen.advantages.all %}
                     <li class="advantages__item">
-                        {% img_tag src=advantage.image is_absolute_src=True width="72" height="72" classes="advantages__item-img" alt="Преимущество" is_lazy=True %}
+                        {% img_tag src=advantage.image_url is_absolute_src=True width="72" height="72" classes="advantages__item-img" alt="Преимущество" is_lazy=True %}
                         <div class="advantages__item-text">
                             <div class="bold">{{ advantage.title|safe }}</div>
                             {{ advantage.subtitle|safe }}

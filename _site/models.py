@@ -72,7 +72,10 @@ class Advantage(models.Model):
     order = models.PositiveIntegerField(default=0, verbose_name='Порядок')
     title = models.CharField(max_length=255, verbose_name="Заголовок", default="")
     subtitle = models.CharField(max_length=255, verbose_name="Подзаголовок", default="")
-    image = models.ImageField(upload_to="static/modules/m-advantages", verbose_name="Изображение")
+    image = models.ImageField(upload_to="_site/static/modules/m-advantages", verbose_name="Изображение")
+
+    def image_url(self):
+        return self.image.url.replace("_site/", "")
 
     def __str__(self):
         return self.title
