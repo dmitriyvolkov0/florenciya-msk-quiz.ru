@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteSettings, FirstScreenSettings, AdvantagesScreenSettings, Gift, Advantage
+from .models import SiteSettings, FirstScreenSettings, AdvantagesScreenSettings, FooterScreenSettings, Gift, Advantage
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -64,6 +64,15 @@ class AdvantagesScreenSettingsAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return not AdvantagesScreenSettings.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
+
+@admin.register(FooterScreenSettings)
+class FooterScreenSettingsAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        return not FooterScreenSettings.objects.exists()
 
     def has_delete_permission(self, request, obj=None):
         return False

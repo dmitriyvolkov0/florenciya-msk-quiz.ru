@@ -72,7 +72,6 @@ class Advantage(models.Model):
     order = models.PositiveIntegerField(default=0, verbose_name='Порядок')
     title = models.CharField(max_length=255, verbose_name="Заголовок", default="")
     subtitle = models.CharField(max_length=255, verbose_name="Подзаголовок", default="")
-
     image = models.ImageField(upload_to="static/modules/m-advantages", verbose_name="Изображение")
 
     def __str__(self):
@@ -100,3 +99,26 @@ class AdvantagesScreenSettings(models.Model):
     class Meta:
         verbose_name = 'Экран "преимущества"'
         verbose_name_plural = '3.Экран "преимущества"'
+
+        
+class FooterScreenSettings(models.Model):
+    logo = models.FileField(upload_to="_site/static/modules/m-footer", verbose_name="Логотип клиники", )
+    oferta = models.CharField(max_length=255, verbose_name="Оферта", default="")
+    specialist = models.CharField(max_length=255, verbose_name="Консультация специлиста", default="")
+    sinergium = models.CharField(max_length=255, verbose_name="Текст синергиум", default="")
+    copyright = models.CharField(max_length=255, verbose_name="Авторское право", default="")
+
+    def save(self, *args, **kwargs):
+        if not self.pk and FooterScreenSettings.objects.exists():
+            raise ValidationError("Может существовать только одна запись настроек")
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return 'Настройки footer'
+    
+    def logo_url(self):
+        return self.logo.url.replace("_site/", "")
+
+    class Meta:
+        verbose_name = 'Настройки footer'
+        verbose_name_plural = '4.Настройки "footer"'

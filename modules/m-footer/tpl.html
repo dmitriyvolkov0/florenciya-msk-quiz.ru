@@ -4,10 +4,14 @@
     <div class="container">
         <div class="footer__grid">
             <div class="footer__logo">
-                {% img_tag src="m-footer/m-footer-logo.svg" width="174" height="56" classes="footer__logo-img" alt="Логотип" is_lazy=True %}
-                <div class="footer__oferta">Сайт не является публичной офертой</div>
+                {% img_tag src=data.footer_screen.logo_url is_absolute_src=True width="174" height="56" classes="footer__logo-img" alt="Логотип" is_lazy=True %}
+                <div class="footer__oferta">
+                    {{ data.footer_screen.oferta|safe }}
+                </div>
             </div>
-            <div class="footer__specialist">Имеются противопоказания, необходима консультация специалиста</div>
+            <div class="footer__specialist">
+                {{ data.footer_screen.specialist|safe }}
+            </div>
             <div class="footer__links">
                 <a href="#" class="footer__link link">Реквизиты клиники</a>
                 <a href="#" class="footer__link link">Политика конфиденциальности</a>
@@ -15,11 +19,12 @@
             <div class="footer__sinergium">
                 {% img_tag src="m-footer/m-footer-sinergium.svg" width="30" height="37" classes="footer__sinergium-logo" alt="Синергиум" is_lazy=True %}
                 <div class="footer__sinergium-text">
-                    <a href="#" class="accent">«Синергиум</a> —&nbsp;Приводим пациентов.
-                    Комплексное развитие проекта
+                    {{ data.footer_screen.sinergium|safe }}
                 </div>
             </div>
-            <div class="footer__copyright">© 2024, «Флоренция». Все права защищены.</div>
+            <div class="footer__copyright">
+                {{ data.footer_screen.copyright|safe }}
+            </div>
         </div>
     </div>
 </footer>
